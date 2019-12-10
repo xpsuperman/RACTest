@@ -1,0 +1,22 @@
+{
+  "name": "RACTest",
+  "version": "0.1.0",
+  "summary": "A short description of RACTest.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/xupeng/RACTest",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xupeng": "xupeng@fenbi.com"
+  },
+  "source": {
+    "git": "https://github.com/xupeng/RACTest.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RACTest/Classes/**/*"
+}

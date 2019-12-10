@@ -1,0 +1,6 @@
+framework module RACTest {
+  umbrella header "RACTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
