@@ -19,7 +19,7 @@ extension UIViewController {
     }
 
     @objc func hook_viewDidAppear(_ animated: Bool) {
-        NSLog("\(NSStringFromClass(object_getClass(self) ?? UIViewController.self)) -- hook_viewDidAppear")
+        NSLog("name:\(self) \(NSStringFromClass(object_getClass(self) ?? UIViewController.self)) -- hook_viewDidAppear")
         hook_viewDidAppear(animated)
     }
 }

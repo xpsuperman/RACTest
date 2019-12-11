@@ -9,27 +9,54 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SnapKit
 
 class ViewController: UIViewController {
 
     @objc
-    var point: CGPoint = CGPoint(x: 0, y: 0)
+    dynamic var point: CGPoint = CGPoint(x: 0, y: 0)
+
+//    let scrollView = UIScrollView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        setupScrollView()
         UIViewController.hookMethod()
         setupAction()
         excutePointChange()
     }
 
+//    func setupScrollView() {
+//        view.addSubview(scrollView)
+//        scrollView.snp.makeConstraints { (make) in
+//            make.edges.equalTo(view)
+//        }
+//
+//        let contentView = UIView()
+//        contentView.backgroundColor = .brown
+//        scrollView.addSubview(contentView)
+//        contentView.snp.makeConstraints { (make) in
+//            make.edges.equalTo(scrollView)
+//            make.height.equalTo(240)
+//        }
+//    }
+
     func setupAction() {
+//        _ = scrollView.rx.observe(CGPoint.self, #keyPath(UIScrollView.contentOffset))
+//            .subscribe(onNext: { (point) in
+//                NSLog("name:\(self) -- \(String(describing:object_getClass(self))) -- \(NSStringFromCGPoint(point!)) -- size changed")
+//            })
+//        _ = scrollView.rx.methodInvoked(#selector(UIScrollView.layoutSubviews))
+//            .subscribe(onNext: { (_) in
+//            NSLog("name:\(self) -- \(String(describing:object_getClass(self))) -- layoutSubviews")
+//        })
+        _ = self.rx.observe(CGPoint.self, #keyPath(ViewController.point))
+            .subscribe(onNext: { (point) in
+                NSLog("name:\(self) -- \(String(describing:object_getClass(self))) -- \(NSStringFromCGPoint(point!)) -- point changed")
+            })
         _ = self.rx.methodInvoked(#selector(viewDidAppear(_:)))
             .subscribe(onNext: { (_) in
-                NSLog("\(NSStringFromClass(object_getClass(self) ?? ViewController.self)) -- methodInvoked")
-            })
-        _ = self.rx.observe(CGPoint.self, "point")
-            .subscribe(onNext: { (point) in
-                NSLog("\(NSStringFromClass(object_getClass(self) ?? ViewController.self)) -- \(NSStringFromCGPoint(point!)) -- point changed")
+                NSLog("name:\(self) -- \(String(describing:object_getClass(self))) -- methodInvoked")
             })
     }
 

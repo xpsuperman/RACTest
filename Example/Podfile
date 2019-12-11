@@ -6,6 +6,8 @@ target 'RACTest_Example' do
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
 
+  pod 'SnapKit', '~> 4.0'
+
   target 'RACTest_Tests' do
     inherit! :search_paths
 
